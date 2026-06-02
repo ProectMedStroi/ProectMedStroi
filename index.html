@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>ПроектМедСтрой - Проектирование, дизайн, и строительство для медицинского бизнеса в СПб и ЛО</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 12px;
+        }
+        .logo-img {
+            height: 120px;
+            width: auto;
+            max-width: 180px;
+            object-fit: contain;
+        }
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .logo-main {
+            font-size: 22px;
+            font-weight: bold;
+            color: #8B5A2B;
+            line-height: 1.2;
+        }
+        .logo-sub {
+            font-size: 12px;
+            color: #555;
+            font-weight: normal;
+        }
+        @media (max-width: 600px) {
+            .logo-img { height: 40px; }
+            .logo-main { font-size: 16px; }
+            .logo-sub { font-size: 10px; }
+        }
+        .header-info {
+            text-align: right;
+        }
+        .work-time {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 4px;
+        }
+        .email, .phone {
+            color: #8B5A2B;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .email:hover, .phone:hover { text-decoration: underline; }
+        .phone { display: inline-block; margin-top: 4px; }
+        .social-links { margin-top: 8px; }
+        .social-links a {
+            color: #8B5A2B;
+            font-size: 20px;
+            margin: 0 6px;
+            transition: color 0.3s;
+            display: inline-block;
+        }
+        .social-links a:hover { color: #6b451f; }
+        .main-nav {
+            background-color: #f8f5f0;
+            padding: 10px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .nav-list a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-list a:hover { color: #8B5A2B; }
+        .btn {
+            display: inline-block;
+            background-color: #8B5A2B;
+            color: #fff;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover { background-color: #6b451f; }
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid #8B5A2B;
+            color: #8B5A2B;
+        }
+        .btn-outline:hover {
+            background-color: #8B5A2B;
+            color: #fff;
+        }
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(hero.png);
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0 60px;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .hero .btn { margin-top: 20px; }
+        .specialties {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #2c3e50;
+        }
+        .specialties-slider {
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        .specialties-slide {
+            text-align: center;
+        }
+        .specialties-slide img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .specialties-slide h4 {
+            font-size: 18px;
+            color: #8B5A2B;
+            margin-top: 10px;
+        }
+        .about {
+            background-color: #fff;
+        }
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .feature-block {
+            margin-bottom: 30px;
+        }
+        .feature-block h3 {
+            color: #8B5A2B;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .feature-block p {
+            color: #555;
+            line-height: 1.6;
+        }
+        hr.feature-divider {
+            margin: 20px 0;
+            border: 0;
+            height: 1px;
+            background: #e0e0e0;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .service-card:hover { transform: translateY(-10px); }
+        .service-icon {
+            font-size: 48px;
+            color: #8B5A2B;
+            margin-bottom: 20px;
+        }
+        .service-card h3 { margin-bottom: 15px; }
+        .portfolio-slider {
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        .portfolio-slide {
+            text-align: center;
+        }
+        .portfolio-slide img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .portfolio-note {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 18px;
+            font-weight: 500;
+            color: #8B5A2B;
+            background-color: #f8f5f0;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .contact-form {
+            background-color: #f8f5f0;
+        }
+        .contact-info {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .contact-info h3 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #8B5A2B;
+        }
+        .contact-info p {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        .contact-info i {
+            width: 30px;
+            color: #8B5A2B;
+        }
+        .contact-info a {
+            color: #8B5A2B;
+            text-decoration: none;
+        }
+        .contact-info a:hover { text-decoration: underline; }
+        .contact-services {
+            background-color: #fef9f2;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+        .contact-services p { margin-bottom: 8px; }
+        .contact-links {
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        .contact-links p { margin: 10px 0; }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        .footer-links {
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer-links a:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .header-top { flex-direction: column; text-align: center; }
+            .header-info { text-align: center; }
+            .logo { justify-content: center; }
+            .section-title { font-size: 28px; }
+            .specialties-slide img { height: 180px; }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="header-top">
+            <a href="#" class="logo">
+                <img src="logo.jpeg" alt="Логотип ПроектМедСтрой" class="logo-img">
+                <div class="logo-text">
+                    <span class="logo-main">ПроектМедСтрой</span>
+                    <span class="logo-sub">Проектирование, дизайн, и строительство для медицинского бизнеса в СПб и ЛО</span>
+                </div>
+            </a>
+            <div class="header-info">
+                <div class="work-time"><i class="far fa-clock"></i> с 10:00 до 19:00 Пн-Пт</div>
+                <div><a href="mailto:pmsspb@inbox.ru" class="email"><i class="far fa-envelope"></i> pmsspb@inbox.ru</a></div>
+                <div><a href="tel:+79110096113" class="phone"><i class="fas fa-phone-alt"></i> +7 911 009 61 13</a></div>
+                <div class="social-links">
+                    <a href="https://max.ru/u/f9LHodD0cOJJc2Zmk4BTdgf5HirVxfihpxKH7nzUSwgo-LuXZwg6ByE3Fec" target="_blank" aria-label="MAX"><i class="fas fa-globe"></i></a>
+                    <a href="https://t.me/BezhanOleg" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-nav">
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="#">Главная</a></li>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#portfolio">Наши проекты</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+<main>
+    <section class="hero">
+        <div class="container">
+            <h1>Проектируем, разрабатываем дизайн, строим и ремонтируем помещения для медицинского бизнеса</h1>
+            <a href="#contact" class="btn">Заказать консультацию</a>
+        </div>
+    </section>
+    <section class="specialties">
+        <div class="container">
+            <div class="swiper specialties-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide specialties-slide"><img src="stomatology.jpg" alt="Стоматологии"><h4>Стоматологии</h4></div>
+                    <div class="swiper-slide specialties-slide"><img src="dental-lab.jpg" alt="Зуботехнические лаборатории"><h4>Зуботехнические лаборатории</h4></div>
+                    <div class="swiper-slide specialties-slide"><img src="cosmetology.jpg" alt="Косметологии"><h4>Косметологии</h4></div>
+                    <div class="swiper-slide specialties-slide"><img src="multidisciplinary.jpg" alt="Многопрофильные клиники и Медцентры"><h4>Многопрофильные клиники и Медцентры</h4></div>
+                    <div class="swiper-slide specialties-slide"><img src="xray.jpg" alt="Рентген кабинеты"><h4>Рентген кабинеты</h4></div>
+                    <div class="swiper-slide specialties-slide"><img src="lfk.jpg" alt="Помещения ЛФК"><h4>Помещения ЛФК</h4></div>
+                    <div class="swiper-slide specialties-slide"><img src="beauty-salon.jpg" alt="Салоны красоты"><h4>Салоны красоты</h4></div>
+                    <div class="swiper-slide specialties-slide"><img src="sanatorium.jpg" alt="Санатории и профилактории"><h4>Санатории и профилактории</h4></div>
+                    <div class="swiper-slide specialties-slide"><img src="laboratory.jpg" alt="Лаборатории ЗА"><h4>Лаборатории ЗА</h4></div>
+                    <div class="swiper-slide specialties-slide"><img src="operating.jpg" alt="Операционные"><h4>Операционные</h4></div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">О нас</h2>
+            <div class="about-content">
+                <div class="feature-block">
+                    <h3>Комплексный подход</h3>
+                    <p>Применение комплексного подхода к выполнению Вашего заказа. Выполняем весь объем работ от начала проектирования до полной реализации проекта и помощи в лицензировании. Все Ваши хлопоты и проблемы мы берем на себя.</p>
+                </div>
+                <hr class="feature-divider">
+                <div class="feature-block">
+                    <h3>Профессионализм и командная работа</h3>
+                    <p>Все проектировщики, специалисты и эксперты, привлекаемые к реализации проектов, являются профессионалами в своей области, с опытом от пяти до двадцати лет. Непрерывно взаимодействуют друг с другом, под общим руководством, создавая единое рабочее пространство, что обеспечивает высокое качество работ.</p>
+                </div>
+                <hr class="feature-divider">
+                <div class="feature-block">
+                    <h3>Соответствие лицензионным требованиям</h3>
+                    <p>Все проектирование и реализация проектных решений производятся в строгом соответствии с актуальными нормами действующего законодательства РФ в области здравоохранения и требованиями МЗ и СанПиН. Это обеспечивает нашим заказчикам гарантированное получение Лицензии на медицинскую деятельность.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Наши услуги</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-drafting-compass"></i></div>
+                    <h3>Проектирование и дизайн</h3>
+                    <p>Разработка BIM-моделей, дизайн-проектов медицинских учреждений, планировочных и технологических решений.</p>
+                    <a href="#" class="btn-outline" style="display: inline-block; margin-top: 15px; padding: 8px 20px;">Подробнее</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
+                    <h3>Строительство и ремонт</h3>
+                    <p>Новое строительство, реконструкция, ремонтно-строительные работы любой сложности "под ключ".</p>
+                    <a href="#" class="btn-outline" style="display: inline-block; margin-top: 15px; padding: 8px 20px;">Подробнее</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-file-signature"></i></div>
+                    <h3>Лицензирование</h3>
+                    <p>Получение медицинских лицензий на объекты без лишних задержек и отсрочек.</p>
+                    <a href="#" class="btn-outline" style="display: inline-block; margin-top: 15px; padding: 8px 20px;">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Наши проекты</h2>
+            <div class="swiper portfolio-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide portfolio-slide"><img src="1.jpg" alt="Проект 1"><h4>Квартиры</h4><p>Санкт-Петербург, пр. Ветеранов</p></div>
+                    <div class="swiper-slide portfolio-slide"><img src="2.jpg" alt="Проект 2"><h4>Дома</h4><p>Ленинградская область, г. Всеволожск</p></div>
+                    <div class="swiper-slide portfolio-slide"><img src="3.jpg" alt="Проект 3"><h4>Офисы</h4><p>Санкт-Петербург, ул. Анны Ахматовой</p></div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+            <div class="portfolio-note">
+                Производим дизайнерский внутренний ремонт жилых и нежилых помещений по своим и сторонним проектам
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="contact-form">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <div class="contact-info">
+                <div class="contact-services">
+                    <h4 style="color: #8B5A2B; margin-bottom: 15px; font-size: 20px;">Вы получите:</h4>
+                    <p>✔ Консультацию и рекомендации по Вашему помещению</p>
+                    <p>✔ Предварительную оценку возможности размещения оборудования</p>
+                    <p>✔ Рекомендации по порядку, последовательности и срокам мероприятий и работ</p>
+                    <p>✔ При необходимости, выезд специалистов</p>
+                </div>
+                <h3>Свяжитесь с нами</h3>
+                <div class="contact-links">
+                    <p><i class="fas fa-phone-alt"></i> <strong>Позвоните нам:</strong> <a href="tel:+79110096113">+7 911 009 61 13</a></p>
+                    <p><i class="fas fa-envelope"></i> <strong>Напишите на э/п:</strong> <a href="mailto:pmsspb@inbox.ru">pmsspb@inbox.ru</a></p>
+                    <p><i class="fab fa-telegram"></i> <strong>Напишите в Telegram:</strong> <a href="https://t.me/BezhanOleg" target="_blank">t.me/BezhanOleg</a></p>
+                    <p><i class="fas fa-globe"></i> <strong>Напишите в MAX:</strong> <a href="https://max.ru/u/f9LHodD0cOJJc2Zmk4BTdgf5HirVxfihpxKH7nzUSwgo-LuXZwg6ByE3Fec" target="_blank">MAX</a></p>
+                </div>
+                <hr style="margin: 20px 0; border-color: #eee;">
+                <p><i class="fas fa-map-marker-alt"></i> г. Санкт-Петербург, ул. Седова, д.5, офис 331</p>
+                <p><i class="far fa-clock"></i> с 10:00 до 19:00 Пн-Пт</p>
+            </div>
+        </div>
+    </section>
+</main>
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="#">Главная</a>
+            <a href="#about">О нас</a>
+            <a href="#services">Услуги</a>
+            <a href="#portfolio">Наши проекты</a>
+            <a href="#contact">Контакты</a>
+        </div>
+        <p>ПСО «ПроектМедСтрой»</p>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    const portfolioSwiper = new Swiper('.portfolio-slider', {
+        loop: true,
+        spaceBetween: 30,
+        slidesPerView: 1,
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+    });
+    const specialtiesSwiper = new Swiper('.specialties-slider', {
+        loop: true,
+        spaceBetween: 20,
+        slidesPerView: 1,
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        breakpoints: { 480: { slidesPerView: 2 }, 768: { slidesPerView: 3 }, 1024: { slidesPerView: 4 } }
+    });
+</script>
+</body>
+</html>
