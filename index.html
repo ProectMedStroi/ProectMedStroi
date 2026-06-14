@@ -67,9 +67,9 @@
             font-weight: normal;
         }
         @media (max-width: 600px) {
-            .logo-img { height: 40px; }
-            .logo-main { font-size: 16px; }
-            .logo-sub { font-size: 10px; }
+            .logo-img { height: 80px; } /* чуть увеличим на мобильных, чтобы было заметнее */
+            .logo-main { font-size: 18px; }
+            .logo-sub { font-size: 11px; }
         }
         .header-info {
             text-align: right;
@@ -180,30 +180,148 @@
             color: #8B5A2B;
             margin-top: 10px;
         }
-        .about {
-            background-color: #fff;
+        /* Новая секция преимуществ */
+        .features {
+            background-color: #fef9f2;
+            padding: 60px 0;
         }
-        .about-content {
-            max-width: 900px;
-            margin: 0 auto;
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
         }
-        .feature-block {
-            margin-bottom: 30px;
+        .feature-card {
+            flex: 1;
+            min-width: 280px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center;
         }
-        .feature-block h3 {
+        .feature-card h3 {
             color: #8B5A2B;
             font-size: 24px;
             margin-bottom: 15px;
         }
-        .feature-block p {
+        .feature-card p {
             color: #555;
             line-height: 1.6;
         }
-        hr.feature-divider {
-            margin: 20px 0;
-            border: 0;
-            height: 1px;
-            background: #e0e0e0;
+        .about {
+            background-color: #fff;
+            padding: 60px 0;
+        }
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #444;
+        }
+        .about-gallery {
+            margin: 40px 0;
+        }
+        .about-gallery .swiper-slide img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .company-description {
+            background-color: #f8f5f0;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+        .executors {
+            background-color: #fff;
+            padding: 60px 0;
+        }
+        .executors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .executor-card {
+            background: #f9f9f9;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .executor-card:hover {
+            transform: translateY(-5px);
+        }
+        .executor-header {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+        }
+        .executor-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            background: #f0f0f0;
+            border-radius: 8px;
+        }
+        .executor-photo {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid #8B5A2B;
+        }
+        .executor-info {
+            flex: 1;
+        }
+        .executor-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #8B5A2B;
+            margin-bottom: 5px;
+        }
+        .executor-inn {
+            font-size: 12px;
+            color: #777;
+        }
+        .executor-role {
+            font-size: 14px;
+            font-weight: 500;
+            margin-top: 5px;
+        }
+        .executor-body {
+            padding: 20px;
+        }
+        .executor-body p {
+            margin-bottom: 10px;
+            color: #555;
+            line-height: 1.5;
+        }
+        .executor-list {
+            list-style: none;
+            margin-top: 10px;
+        }
+        .executor-list li {
+            margin-bottom: 5px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .executor-list li:before {
+            content: "•";
+            color: #8B5A2B;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .final-text {
+            background-color: #f8f5f0;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 40px 0 0;
         }
         .services-grid {
             display: grid;
@@ -309,9 +427,18 @@
             .hero h1 { font-size: 32px; }
             .header-top { flex-direction: column; text-align: center; }
             .header-info { text-align: center; }
-            .logo { justify-content: center; }
+            .logo { 
+                justify-content: center;
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo-text {
+                align-items: center;
+            }
             .section-title { font-size: 28px; }
             .specialties-slide img { height: 180px; }
+            .about-gallery .swiper-slide img { height: 220px; }
+            .executor-header { flex-wrap: wrap; justify-content: center; text-align: center; }
         }
     </style>
 </head>
@@ -377,27 +504,166 @@
             </div>
         </div>
     </section>
-    <section id="about" class="about">
+
+    <section class="features">
         <div class="container">
-            <h2 class="section-title">О нас</h2>
-            <div class="about-content">
-                <div class="feature-block">
+            <div class="features-grid">
+                <div class="feature-card">
                     <h3>Комплексный подход</h3>
                     <p>Применение комплексного подхода к выполнению Вашего заказа. Выполняем весь объем работ от начала проектирования до полной реализации проекта и помощи в лицензировании. Все Ваши хлопоты и проблемы мы берем на себя.</p>
                 </div>
-                <hr class="feature-divider">
-                <div class="feature-block">
+                <div class="feature-card">
                     <h3>Профессионализм и командная работа</h3>
                     <p>Все проектировщики, специалисты и эксперты, привлекаемые к реализации проектов, являются профессионалами в своей области, с опытом от пяти до двадцати лет. Непрерывно взаимодействуют друг с другом, под общим руководством, создавая единое рабочее пространство, что обеспечивает высокое качество работ.</p>
                 </div>
-                <hr class="feature-divider">
-                <div class="feature-block">
+                <div class="feature-card">
                     <h3>Соответствие лицензионным требованиям</h3>
                     <p>Все проектирование и реализация проектных решений производятся в строгом соответствии с актуальными нормами действующего законодательства РФ в области здравоохранения и требованиями МЗ и СанПиН. Это обеспечивает нашим заказчикам гарантированное получение Лицензии на медицинскую деятельность.</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">О нас</h2>
+            <div class="about-text">
+                <p>Современное лечебное, амбулаторное и даже профилактическое медицинское учреждение неизменно является сложнейшим, с инженерной и строительной точки зрения объектом, дополнительно обремененным высокими лицензионными требованиями. Создание и запуск в строй такого объекта требует от исполнителей точного взаимодействия на высочайшем профессиональном уровне, зачастую на грани и даже на пересечении специализаций.</p>
+            </div>
+            <div class="about-gallery">
+                <div class="swiper gallery-slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="sl1.jpeg" alt="Фото 1"></div>
+                        <div class="swiper-slide"><img src="sl2.jpeg" alt="Фото 2"></div>
+                        <div class="swiper-slide"><img src="sl3.jpeg" alt="Фото 3"></div>
+                        <div class="swiper-slide"><img src="sl4.jpeg" alt="Фото 4"></div>
+                        <div class="swiper-slide"><img src="sl5.jpeg" alt="Фото 5"></div>
+                        <div class="swiper-slide"><img src="sl6.jpeg" alt="Фото 6"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+            <div class="company-description">
+                <p><strong>ПСО «ПроектМедСтрой»</strong> – это группа компаний и индивидуальных предпринимателей, объединяющая единомышленников, коллег и партнеров, занимающихся общим делом в сфере медицинского строительства.
+                Имея немалый опыт в разработке и реализации проектов и дизайна медицинских учреждений и других высокотехнологичных объектов, каждый в отдельности, мы решили создать структуру, позволяющую осуществлять эту деятельность под общим руководством и координацией. К такому формату мы пришли после длительной совместной работы на различных объектах.
+                Основная цель совместной работы в таком формате – безукоризненное взаимодействие исполнителей проекта на всех этапах реализации. Соблюдение и ускорение сроков исполнения контрактов, гарантированно высокое качество всех видов работ. И главное – общие координация и управление разнородными группами исполнителей.
+                При этом мы сохраняем самостоятельность каждого исполнителя, в части касающейся его компетенций. А так же не допускаем создания дополнительной финансовой нагрузки на Заказчиков.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="executors">
+        <div class="container">
+            <h2 class="section-title">Наши исполнители</h2>
+            <div class="executors-grid">
+                <!-- 1. ИП Костерин -->
+                <div class="executor-card">
+                    <div class="executor-header">
+                        <img src="logo_gip.jpg" alt="Логотип" class="executor-logo" onerror="this.src='https://placehold.co/80x80?text=Logo'">
+                        <img src="foto_gip.jpg" alt="Фото директора" class="executor-photo" onerror="this.src='https://placehold.co/80x80?text=Photo'">
+                        <div class="executor-info">
+                            <div class="executor-name">ИП Костерин Степан Владимирович</div>
+                            <div class="executor-role">Главный исполнитель проектов (ГИП)</div>
+                        </div>
+                    </div>
+                    <div class="executor-body">
+                        <p>Обладает более чем десятилетним опытом в проектировании, разработке дизайна и в строительстве медицинских учреждений любого уровня сложности. В его копилке более тридцати реализованных проектов. Профессионал своего дела. В работе гибок и креативен, отличается творческим подходом к исполнению любых пожеланий Заказчиков. Осуществляет авторский надзор и сопровождение при реализации проектов.</p>
+                    </div>
+                </div>
+                <!-- 2. ООО «КЛАСС ТЕЛЕКОМ» -->
+                <div class="executor-card">
+                    <div class="executor-header">
+                        <img src="logo_class_telecom.jpg" alt="Логотип" class="executor-logo" onerror="this.src='https://placehold.co/80x80?text=Logo'">
+                        <img src="director2.jpg" alt="Фото директора" class="executor-photo" onerror="this.src='https://placehold.co/80x80?text=Photo'">
+                        <div class="executor-info">
+                            <div class="executor-name">ООО «КЛАСС ТЕЛЕКОМ»</div>
+                            <div class="executor-inn">ИНН 7810335826</div>
+                            <div class="executor-role">Генеральный директор Кореш Олег Викторович</div>
+                        </div>
+                    </div>
+                    <div class="executor-body">
+                        <p>Компания с 2005 года предлагает услуги в сфере проектирования, монтажа и обслуживания инженерных слаботочных сетей и систем безопасности в Ленинградской области и Санкт-Петербурге. Отличается безупречным качеством предоставляемых услуг и оборудования. В нашей команде ООО «КЛАСС ТЕЛЕКОМ» отвечает за:</p>
+                        <ul class="executor-list">
+                            <li>системы контроля и управления доступом;</li>
+                            <li>системы видеонаблюдения;</li>
+                            <li>структурированные кабельные сети;</li>
+                            <li>организацию локальных сетей;</li>
+                            <li>монтаж охранно-пожарных систем;</li>
+                            <li>организацию wi-fi сетей;</li>
+                            <li>электромонтажные работы;</li>
+                            <li>строительно-монтажные работы.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 3. ООО "Контех" -->
+                <div class="executor-card">
+                    <div class="executor-header">
+                        <img src="logo_kontex.jpg" alt="Логотип" class="executor-logo" onerror="this.src='https://placehold.co/80x80?text=Logo'">
+                        <img src="director3.jpg" alt="Фото директора" class="executor-photo" onerror="this.src='https://placehold.co/80x80?text=Photo'">
+                        <div class="executor-info">
+                            <div class="executor-name">ООО "Контех"</div>
+                            <div class="executor-inn">ИНН 7816742190</div>
+                            <div class="executor-role">Руководитель Коновалов Константин Викторович</div>
+                        </div>
+                    </div>
+                    <div class="executor-body">
+                        <p>Компания основана 15 июня 2023 года и зарегистрирована в Санкт-Петербурге. Компания работает в сфере производства электромонтажных работ. Несмотря на относительную молодость самого предприятия, его руководитель и остальные сотрудники имеют огромный опыт в монтаже систем энергообеспечения объектов, с обустройством конечных устройств, в соответствии с дизайн-проектами. За плечами ООО «Контех» десятки успешно выполненных проектов на высочайшем профессиональном уровне.</p>
+                    </div>
+                </div>
+                <!-- 4. ИП Живоглядов Игорь Леонидович -->
+                <div class="executor-card">
+                    <div class="executor-header">
+                        <img src="logo_jivoglyadov.jpg" alt="Логотип" class="executor-logo" onerror="this.src='https://placehold.co/80x80?text=Logo'">
+                        <img src="director4.jpg" alt="Фото директора" class="executor-photo" onerror="this.src='https://placehold.co/80x80?text=Photo'">
+                        <div class="executor-info">
+                            <div class="executor-name">ИП Живоглядов Игорь Леонидович</div>
+                        </div>
+                    </div>
+                    <div class="executor-body">
+                        <p>Более двадцати лет трудится на рынке строительных услуг. Выполняет строительно-монтажные работы по разделам проектов: архитектурные решения, интерьерные решения, отопление, водоснабжение и канализация. Воплощает в жизнь дизайнерские задания любой сложности на помещениях для медицинского бизнеса и любых других объектах. Скрупулезность, филигранная точность и неизменное высокое качество работы вызывают восхищение коллег и Заказчиков.</p>
+                    </div>
+                </div>
+                <!-- 5. ООО «АМП Северо-Запад» -->
+                <div class="executor-card">
+                    <div class="executor-header">
+                        <img src="logo_amp.jpg" alt="Логотип" class="executor-logo" onerror="this.src='https://placehold.co/80x80?text=Logo'">
+                        <img src="director5.jpg" alt="Фото директора" class="executor-photo" onerror="this.src='https://placehold.co/80x80?text=Photo'">
+                        <div class="executor-info">
+                            <div class="executor-name">ООО «АМП Северо-Запад»</div>
+                            <div class="executor-inn">ИНН 7814406595</div>
+                            <div class="executor-role">Генеральный директор Вильчик Евгений Владимирович</div>
+                        </div>
+                    </div>
+                    <div class="executor-body">
+                        <p>В нашей группе компания «АМП Северо-Запад» специализируется на разработке и монтаже систем вентиляции и кондиционирования. Штат компании укомплектован исключительно опытными работниками, имеющими не менее чем пятилетний стаж в своей сфере деятельности. Усилиями высококлассных специалистов этого нашего партнера, Заказчики получают эффективные и надежные системы локального климата, к которым законодательство РФ, в области лицензирования медицинской деятельности, предъявляет самые серьезные требования.</p>
+                    </div>
+                </div>
+                <!-- 6. ООО "Бюро Лицензирования" -->
+                <div class="executor-card">
+                    <div class="executor-header">
+                        <img src="logo_licensing_bureau.jpg" alt="Логотип" class="executor-logo" onerror="this.src='https://placehold.co/80x80?text=Logo'">
+                        <img src="director6.jpg" alt="Фото директора" class="executor-photo" onerror="this.src='https://placehold.co/80x80?text=Photo'">
+                        <div class="executor-info">
+                            <div class="executor-name">ООО "Бюро Лицензирования"</div>
+                            <div class="executor-inn">ИНН 7816674712</div>
+                            <div class="executor-role">Руководитель Куприянова Наталия Борисовна</div>
+                        </div>
+                    </div>
+                    <div class="executor-body">
+                        <p>Компания, возглавляемая бессменным с 2008 года руководителем Наталией Борисовной Куприяновой, специализируется на проектировании и строительстве высокотехнологичных, современных рентген-кабинетов, операционных и других помещений, связанных с эксплуатацией источников тяжелых излучений. Предоставляет возможность получения соответствующих согласований своих проектов в компетентных инстанциях. Для обеспечения гарантированного получения Заказчиком ЛИЦЕНЗИИ НА МЕДИЦИНСКУЮ ДЕЯТЕЛЬНОСТЬ, в ООО "Бюро Лицензирования" создана эффективная команда опытнейших экспертов, владеющих текущими, актуальными требованиями законодательства РФ.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="final-text">
+                <p>На всех этапах, от начала проектирования и до сдачи объекта в эксплуатацию Заказчику, с ним работает опытный «Координатор проектов». Это всегда наиболее подготовленный управленец, обладающий всем необходимым арсеналом средств для обеспечения наиболее качественной реализации проекта.</p>
+                <p>Все руководители организаций – участников ПСО «ПроектМедСтрой» и руководители ключевых направлений проектов обладают не только опытом в строительной отрасли. Как правило, многие из них имеют за плечами стаж работы в управляющих структурах различных медицинских организаций.</p>
+                <p>Все будущие исполнители Ваших проектов имеют необходимый комплект разрешительной документации, являются участниками СРО.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="services">
         <div class="container">
             <h2 class="section-title">Наши услуги</h2>
@@ -495,6 +761,14 @@
         pagination: { el: '.swiper-pagination', clickable: true },
         navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
         breakpoints: { 480: { slidesPerView: 2 }, 768: { slidesPerView: 3 }, 1024: { slidesPerView: 4 } }
+    });
+    const gallerySwiper = new Swiper('.gallery-slider', {
+        loop: true,
+        spaceBetween: 20,
+        slidesPerView: 1,
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
     });
 </script>
 </body>
