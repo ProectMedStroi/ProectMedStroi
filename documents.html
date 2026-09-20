@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Документы — ПСО «ПроектМедСтрой»</title>
+    <meta name="description" content="Лицензии, свидетельства СРО, сертификаты и разрешительная документация ПСО «ПроектМедСтрой» и компаний-участников объединения в сфере медицинского строительства.">
+    <meta name="keywords" content="лицензия на медицинскую деятельность, свидетельство СРО, разрешительная документация, сертификаты, документы медицинской клиники, ПроектМедСтрой">
+    <link rel="canonical" href="https://proectmedstroi.github.io/ProectMedStroi/documents.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 12px;
+        }
+        .logo-img {
+            height: 120px;
+            width: auto;
+            max-width: 180px;
+            object-fit: contain;
+        }
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .logo-main {
+            font-size: 22px;
+            font-weight: bold;
+            color: #8B5A2B;
+            line-height: 1.2;
+        }
+        .logo-sub {
+            font-size: 12px;
+            color: #555;
+            font-weight: normal;
+        }
+        @media (max-width: 600px) {
+            .logo-img { height: 80px; }
+            .logo-main { font-size: 18px; }
+            .logo-sub { font-size: 11px; }
+        }
+        .header-info { text-align: right; }
+        .work-time { font-size: 14px; color: #555; margin-bottom: 4px; }
+        .email, .phone {
+            color: #8B5A2B;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .email:hover, .phone:hover { text-decoration: underline; }
+        .phone { display: inline-block; margin-top: 4px; }
+        .social-links { margin-top: 8px; }
+        .social-links a {
+            color: #8B5A2B;
+            font-size: 20px;
+            margin: 0 6px;
+            transition: color 0.3s;
+            display: inline-block;
+        }
+        .social-links a:hover { color: #6b451f; }
+        .main-nav {
+            background-color: #f8f5f0;
+            padding: 10px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .nav-list a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-list a:hover, .nav-list a.active { color: #8B5A2B; }
+        .nav-list a.active { border-bottom: 2px solid #8B5A2B; padding-bottom: 2px; }
+        .page-hero {
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url(hero.png);
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 70px 0 50px;
+        }
+        .page-hero h1 {
+            font-size: 44px;
+            margin-bottom: 15px;
+        }
+        .page-hero p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        .documents-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        .section-subtitle {
+            text-align: center;
+            font-size: 17px;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+        }
+        .document-card {
+            background: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: 1px solid #eee;
+        }
+        .document-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(139, 90, 43, 0.15);
+            border-color: #8B5A2B;
+        }
+        .document-card img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            display: block;
+            background: #eee;
+        }
+        .document-card .doc-caption {
+            padding: 15px;
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+            font-weight: 500;
+            background: #fff;
+            border-top: 1px solid #f0f0f0;
+        }
+        .doc-number {
+            display: inline-block;
+            background: #8B5A2B;
+            color: #fff;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-right: 8px;
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox img {
+            max-width: 95%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 6px;
+            box-shadow: 0 0 40px rgba(0,0,0,0.5);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            cursor: pointer;
+            background: rgba(139,90,43,0.7);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+        .lightbox-close:hover { background: #8B5A2B; }
+        .lightbox-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #fff;
+            font-size: 16px;
+            padding: 0 20px;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        .footer-links { margin-bottom: 20px; }
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer-links a:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            .page-hero h1 { font-size: 30px; }
+            .page-hero p { font-size: 15px; }
+            .header-top { flex-direction: column; text-align: center; }
+            .header-info { text-align: center; }
+            .logo {
+                justify-content: center;
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo-text { align-items: center; }
+            .section-title { font-size: 26px; }
+            .documents-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 15px;
+            }
+            .document-card img { height: 240px; }
+            .lightbox-close { top: 10px; right: 15px; font-size: 30px; width: 40px; height: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="header-top">
+            <a href="index.html" class="logo">
+                <img src="logo.jpeg" alt="Логотип ПроектМедСтрой" class="logo-img">
+                <div class="logo-text">
+                    <span class="logo-main">ПроектМедСтрой</span>
+                    <span class="logo-sub">Проектирование, дизайн, и строительство для медицинского бизнеса в СПб и ЛО</span>
+                </div>
+            </a>
+            <div class="header-info">
+                <div class="work-time"><i class="far fa-clock"></i> с 10:00 до 19:00 Пн-Пт</div>
+                <div><a href="mailto:pmsspb@inbox.ru" class="email"><i class="far fa-envelope"></i> pmsspb@inbox.ru</a></div>
+                <div><a href="tel:+79110096113" class="phone"><i class="fas fa-phone-alt"></i> +7 911 009 61 13</a></div>
+                <div class="social-links">
+                    <a href="https://max.ru/u/f9LHodD0cOJJc2Zmk4BTdgf5HirVxfihpxKH7nzUSwgo-LuXZwg6ByE3Fec" target="_blank" aria-label="MAX"><i class="fas fa-globe"></i></a>
+                    <a href="https://t.me/BezhanOleg" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-nav">
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="index.html#about">О нас</a></li>
+                <li><a href="index.html#services">Услуги</a></li>
+                <li><a href="index.html#portfolio">Наши проекты</a></li>
+                <li><a href="index.html#contact">Контакты</a></li>
+                <li><a href="documents.html" class="active">Документы</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="page-hero">
+        <div class="container">
+            <h1>Документы</h1>
+            <p>Лицензии, свидетельства СРО, сертификаты и разрешительная документация ПСО «ПроектМедСтрой» и компаний-участников объединения.</p>
+        </div>
+    </section>
+
+    <section class="documents-section">
+        <div class="container">
+            <h2 class="section-title">Разрешительная документация</h2>
+            <p class="section-subtitle">Нажмите на любое изображение, чтобы увеличить его.</p>
+
+            <div class="documents-grid" id="documentsGrid">
+                <div class="document-card">
+                    <img src="doc1.jpg" alt="Документ 1">
+                    <div class="doc-caption"><span class="doc-number">01</span></div>
+                </div>
+                <div class="document-card">
+                    <img src="doc2.jpg" alt="Документ 2">
+                    <div class="doc-caption"><span class="doc-number">02</span></div>
+                </div>
+                <div class="document-card">
+                    <img src="doc3.jpg" alt="Документ 3">
+                    <div class="doc-caption"><span class="doc-number">03</span></div>
+                </div>
+                <div class="document-card">
+                    <img src="doc4.jpg" alt="Документ 4">
+                    <div class="doc-caption"><span class="doc-number">04</span></div>
+                </div>
+                <div class="document-card">
+                    <img src="doc5.jpg" alt="Документ 5">
+                    <div class="doc-caption"><span class="doc-number">05</span></div>
+                </div>
+                <div class="document-card">
+                    <img src="doc6.jpg" alt="Документ 6">
+                    <div class="doc-caption"><span class="doc-number">06</span></div>
+                </div>
+                <div class="document-card">
+                    <img src="doc7.jpg" alt="Документ 7">
+                    <div class="doc-caption"><span class="doc-number">07</span></div>
+                </div>
+                <div class="document-card">
+                    <img src="doc8.jpg" alt="Документ 8">
+                    <div class="doc-caption"><span class="doc-number">08</span></div>
+                </div>
+                <div class="document-card">
+                    <img src="doc9.jpg" alt="Документ 9">
+                    <div class="doc-caption"><span class="doc-number">09</span></div>
+                </div>
+                <div class="document-card">
+                    <img src="doc10.jpg" alt="Документ 10">
+                    <div class="doc-caption"><span class="doc-number">10</span></div>
+                </div>
+                <div class="document-card">
+                    <img src="doc11.jpg" alt="Документ 11">
+                    <div class="doc-caption"><span class="doc-number">11</span></div>
+                </div>
+                <div class="document-card">
+                    <img src="doc12.jpg" alt="Документ 12">
+                    <div class="doc-caption"><span class="doc-number">12</span></div>
+                </div>
+                <div class="document-card">
+                    <img src="doc13.jpg" alt="Документ 13">
+                    <div class="doc-caption"><span class="doc-number">13</span></div>
+                </div>
+                <div class="document-card">
+                    <img src="doc14.jpg" alt="Документ 14">
+                    <div class="doc-caption"><span class="doc-number">14</span></div>
+                </div>
+                <div class="document-card">
+                    <img src="doc15.jpg" alt="Документ 15">
+                    <div class="doc-caption"><span class="doc-number">15</span></div>
+                </div>
+                <div class="document-card">
+                    <img src="doc16.jpg" alt="Документ 16">
+                    <div class="doc-caption"><span class="doc-number">16</span></div>
+                </div>
+                <div class="document-card">
+                    <img src="doc17.jpg" alt="Документ 17">
+                    <div class="doc-caption"><span class="doc-number">17</span></div>
+                </div>
+                <div class="document-card">
+                    <img src="doc18.jpg" alt="Документ 18">
+                    <div class="doc-caption"><span class="doc-number">18</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="index.html">Главная</a>
+            <a href="index.html#about">О нас</a>
+            <a href="index.html#services">Услуги</a>
+            <a href="index.html#portfolio">Наши проекты</a>
+            <a href="index.html#contact">Контакты</a>
+            <a href="documents.html">Документы</a>
+        </div>
+        <p>ПСО «ПроектМедСтрой»</p>
+    </div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <img src="" alt="Документ" id="lightboxImg">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    document.querySelectorAll('.document-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const img = card.querySelector('img');
+            const caption = card.querySelector('.doc-caption').innerText.trim();
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightboxCaption.textContent = caption;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+        lightboxImg.src = '';
+    }
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+    });
+</script>
+
+</body>
+</html>
